@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>YOYO</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body onload="onInit()">
@@ -35,13 +35,13 @@
                         <input class="color-change" type="color" oninput="onSetLineColor()" />
                     </label>
                     <div><button class="btn-increase" onclick="onSetTxtSize(10)"><img
-                                src="/ICONS/increase font - icon.png" alt=""></button>
+                                src="ICONS/increase font - icon.png" alt=""></button>
                         <button class="btn-decrease" onclick="onSetTxtSize(-10)"><img
-                                src="/ICONS/decrease font - icon.png" alt="" /></button>
+                                src="ICONS/decrease font - icon.png" alt="" /></button>
                         <button class="btn-switch" onclick="onSwitchLines(1)"><img
-                                src="/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
-                        <button class="btn-add" onclick="onAddLine()"><img src="/ICONS/add.png" alt=""></button>
-                        <button class="btn-remove" onclick="onRemoveLine()"><img src="/ICONS/trash.png" alt=""></button>
+                                src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                        <button class="btn-add" onclick="onAddLine()"><img src="ICONS/add.png" alt=""></button>
+                        <button class="btn-remove" onclick="onRemoveLine()"><img src="ICONS/trash.png" alt=""></button>
                         <button class="btn-up" onclick="onMoveUp()">⬆</button>
                         <button class="btn-down" onclick="onMoveDown()">⬇</button>
                         <div>
@@ -52,6 +52,11 @@
                             <button class="btn-left" onclick="onSetAlign('left')"><img src="/ICONS/align-to-right.png"
                                     alt=""></button>
                         </div>
+                        <div class="font"><select class="font-by" onchange="onSetFont()">
+                                <option value="impact">impact</option>
+                                <option value="monospace">monospace</option>
+                                <option value="Times New Roman">Times New Roman</option>
+                            </select> </div>
                     </div>
                 </div>
             </section>

@@ -6,6 +6,7 @@ var gMeme = {
     lines: [
         {
             id: makeId(),
+            font: 'Impact',
             txt: 'Change text',
             size: 30,
             pos: 50,
@@ -50,24 +51,29 @@ function addLine() {
     else if (lines.length === 1) {
         var line = _createLine('Change text', 30, 450)
         lines.push(line)
+        gMeme.selectedLineIdx = lines.length - 1
+        lines[gMeme.selectedLineIdx - 1].mark = '#ffffff00'
     }
     else if (lines.length >= 2) {
         line = _createLine('Change text', 30, getRandomIntInclusive(100, 400))
         lines.push(line)
+        gMeme.selectedLineIdx = lines.length - 1
+        lines[gMeme.selectedLineIdx - 1].mark = '#ffffff00'
 
     }
-    gMeme.selectedLineIdx = lines.length - 1
-    lines[gMeme.selectedLineIdx - 1].mark = '#ffffff00'
+
 }
 
 function removeLine() {
     const lines = getLine()
     lines.splice(gMeme.selectedLineIdx, 1)
     gMeme.selectedLineIdx = lines.length - 1
+    if (gMeme.selectedLineIdx < 0) return
+    lines[gMeme.selectedLineIdx].mark = '#ffffff40'
 
 }
 
-function setLineTxt(txt, lineIdx) {
+function setLineTxt(txt) {
     gMeme.lines[gMeme.selectedLineIdx].txt = txt
 
 }
@@ -90,53 +96,17 @@ function setLineColor(color) {
     gMeme.lines[gMeme.selectedLineIdx].color = color
 }
 
-function switchLines(value) {
+function switchLines() {
     const lines = getLine()
-    // for (var i = 0; i < lines.length; i++) {
-    //     if (lines[i].size === 0) return
-    // }
-
-
-    if (gMeme.selectedLineIdx === 0) {
-        gMeme.selectedLineIdx = value
-        gMeme.lines[0].mark = '#ffffff00'
-        gMeme.lines[1].mark = '#ffffff40'
-    }
-    else {
-        gMeme.selectedLineIdx = 0
-        gMeme.lines[0].mark = '#ffffff40'
-        gMeme.lines[1].mark = '#ffffff00'
-    }
-
-    // gMeme.selectedLineIdx++
-    // else if (lines.length > 1) {
-    //     if (gMeme.selectedLineIdx === 0) gMeme.selectedLineIdx = lines.length - 1
-    //     console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
-    //     gMeme.lines[gMeme.selectedLineIdx - 1].mark = '#ffffff40'
-    //     gMeme.lines[gMeme.selectedLineIdx].mark = '#ffffff00'
-
-    //     gMeme.selectedLineIdx--
-    // }
-
-    // if (gMeme.selectedLineIdx < 0) gMeme.selectedLineIdx = lines.length - 1
-    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
-
-
-
-    // if (gMeme.selectedLineIdx === 0) {
-    //     gMeme.selectedLineIdx = 1
-    //     // gMeme.lines[0].mark = '#ffffff00'
-    //     // gMeme.lines[1].mark = '#ffffff40'
-    // }
-    // else if (gMeme.selectedLineIdx === 1) {
-    //     gMeme.selectedLineIdx = 0
-    //     // gMeme.lines[0].mark = '#ffffff40'
-    //     // gMeme.lines[1].mark = '#ffffff00'
-    // }
-
-
+    gMeme.selectedLineIdx--
+    lines[gMeme.selectedLineIdx + 1].mark = '#ffffff00'
+    if (gMeme.selectedLineIdx < 0) gMeme.selectedLineIdx = lines.length - 1
+    lines[gMeme.selectedLineIdx].mark = '#ffffff40'
 }
 
+function setFont(font) {
+    gMeme.lines[gMeme.selectedLineIdx].font = font
+}
 
 
 
@@ -146,6 +116,7 @@ function _createLine(txt, size, pos) {
         txt,
         size,
         pos,
+        font: 'Impact',
         mark: '#ffffff40',
         align: 'center',
         color: 'white'

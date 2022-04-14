@@ -17,12 +17,12 @@ function renderMeme() {
     const meme = getMeme()
     const lines = meme.lines
     var img = new Image()
-    img.src = `meme-imgs/${meme.selectedImgId}.jpg`;
+    img.src = `../../meme-imgs/${meme.selectedImgId}.jpg`;
     img.onload = () => {
         gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
         for (var i = 0; i < lines.length; i++) {
 
-            drawText(lines[i].txt, gElCanvas.width / 2, lines[i].pos, lines[i].size, lines[i].align, lines[i].color)
+            drawText(lines[i].txt, gElCanvas.width / 2, lines[i].pos, lines[i].size, lines[i].align, lines[i].color, lines[i].font)
             drawRect(40, lines[i].pos - 25, lines[i].mark)
         }
 
@@ -61,9 +61,17 @@ function renderController() {
 
 }
 
-function onSwitchLines(value) {
-    switchLines(value)
+function onSwitchLines() {
+    switchLines()
     renderMeme()
+    console.log('gMeme.selectedLineIdx-switch', gMeme.selectedLineIdx)
+}
+
+function onSetFont() {
+    const font = document.querySelector('.font-by').value
+    setFont(font)
+    renderMeme()
+
 }
 
 function onMoveUp() {
@@ -78,6 +86,7 @@ function onMoveDown() {
 function onAddLine() {
     addLine()
     renderMeme()
+    console.log('gMeme.selectedLineIdx', gMeme.selectedLineIdx)
 }
 
 function onRemoveLine() {
@@ -128,12 +137,12 @@ function removeDrawRect(x, y) {
     gCtx.stroke();
 }
 
-function drawText(txt, x, y, size, align, color) {
+function drawText(txt, x, y, size, align, color, font) {
     gCtx.textBaseline = 'middle'
     gCtx.textAlign = align
     gCtx.lineWidth = 2
     gCtx.fillStyle = color
-    gCtx.font = `${size}px Impact`
+    gCtx.font = `${size}px ${font}`
     gCtx.fillText(txt, x, y);
     gCtx.strokeStyle = 'black'
     gCtx.strokeText(txt, x, y)
