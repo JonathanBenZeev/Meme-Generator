@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="onInit()">
+    <section class="main-layout grid">
+        <header class="main-header">
+            <ul class="main-nav grid clean-list">
+                <li><a onclick="onGallery()" class="item1" href="#">Gallery</a></li>
+                <li><a class="item2" href="#">About</a></li>
+            </ul>
+        </header>
+        <main class="main-content">
+            <section class="gallery grid grid-template-columns">
+                <!-- render gallery here! -->
+            </section>
+            <section class="meme-editor flex  hide">
+                <canvas id="canvas" height="500" width="500">
+                </canvas>
+                <div class="editor flex flex-column justify-center align-center ">
+                    <label>
+                        Change text
+                        <input class="txt-change" type="text" placeholder="change text" maxlength="15"
+                            oninput="onSetLineTxt()" />
+                    </label>
+                    <label>
+                        color
+                        <input class="color-change" type="color" oninput="onSetLineColor()" />
+                    </label>
+                    <div><button class="btn-increase" onclick="onSetTxtSize(10)"><img
+                                src="/ICONS/increase font - icon.png" alt=""></button>
+                        <button class="btn-decrease" onclick="onSetTxtSize(-10)"><img
+                                src="/ICONS/decrease font - icon.png" alt="" /></button>
+                        <button class="btn-switch" onclick="onSwitchLines(1)"><img
+                                src="/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" alt=""></button>
+                        <button class="btn-add" onclick="onAddLine()"><img src="/ICONS/add.png" alt=""></button>
+                        <button class="btn-remove" onclick="onRemoveLine()"><img src="/ICONS/trash.png" alt=""></button>
+                        <button class="btn-up" onclick="onMoveUp()">⬆</button>
+                        <button class="btn-down" onclick="onMoveDown()">⬇</button>
+                        <div>
+                            <button class="btn-center" onclick="onSetAlign('center')"><img
+                                    src="/ICONS/center-text-alignment.png" alt=""></button>
+                            <button class="btn-right" onclick="onSetAlign('right')"><img src="/ICONS/align-to-left.png"
+                                    alt=""></button>
+                            <button class="btn-left" onclick="onSetAlign('left')"><img src="/ICONS/align-to-right.png"
+                                    alt=""></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer"></footer>
+    </section>
+
+
+
+
+
+
+
+
+    <script src="js/services/util.service.js"></script>
+    <script src="js/services/storage.service.js"></script>
+    <script src="js/services/gallery.controller.js"></script>
+    <script src="js/services/meme.service.js"></script>
+    <script src="js/meme.controller.js"></script>
+</body>
+
+</html>

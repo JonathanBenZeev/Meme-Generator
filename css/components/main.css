@@ -1,0 +1,31 @@
+.main-content {
+    grid-row: 2;
+    background-color: var(--clr4);
+
+}
+
+.meme-editor {
+    margin: 1rem 20%;
+}
+
+.editor {
+    gap: 2rem;
+    margin-left: 7rem;
+    width: 20rem;
+    height: 20rem;
+    background-color: var(--clr2);
+    border-radius: 5%;
+}
+
+
+.editor button {
+    cursor: pointer;
+    background-color: var(--clr4);
+    border-radius: 10px;
+
+}
+
+.editor img {
+    width: 1.2rem;
+
+}
