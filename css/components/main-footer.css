@@ -1,42 +1,4 @@
 .footer {
   grid-row: 3;
-  background-color: var(--clr3);
-}
-
-
-
-
-
-
-.footer-links a {
-  cursor: pointer;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--primary-clr-500);
-  color: var(--primary-clr-200);
-  margin-top: 5rem;
-}
-
-
-.fa-facebook:hover {
-  background: #3b5998;
-  color: white;
-}
-
-.fa-twitter:hover {
-  background: #55acee;
-  color: white;
-}
-
-.fa-behance:hover {
-  background: #053eee;
-  color: white;
-}
-
-.fa-dribbble:hover {
-  background: #ea4c89;
-  color: white;
+  background-color: var(--clr1);
 }

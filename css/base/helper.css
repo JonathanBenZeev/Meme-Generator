@@ -38,30 +38,21 @@
     list-style-type: none;
 }
 
-/* font awsome */
-
-.fa {
-    font-family: fa;
-}
-
-.fa.fa-facebook::before {
-    content: "\f39e";
-}
-
-.fa.fa-twitter::before {
-    content: "\f099";
-}
-
-.fa.fa-dribbble::before {
-    content: "\f17d";
-}
-
-.fa.fa-behance::before {
-    content: "\f1b4";
-}
 
 /* hide/show */
 
 .hide {
     display: none;
+}
+
+.btn {
+
+    width: 7.5rem;
+    height: 2rem;
+    /* margin: 10px 0 0 127px; */
+    padding: 1.1rem 1rem;
+    border-radius: 6px;
+    background-color: #ff7f00;
+    position: relative;
+
 }

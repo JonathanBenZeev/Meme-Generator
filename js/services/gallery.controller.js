@@ -18,11 +18,10 @@ var gImgs = [
     { id: 15, url: 'img/15.jpg', keywords: ['funny', 'cat'] },
     { id: 16, url: 'img/16.jpg', keywords: ['funny', 'cat'] },
     { id: 17, url: 'img/17.jpg', keywords: ['funny', 'cat'] },
-];
+]
 
 
 function onInit() {
-
     renderGallery()
 }
 
@@ -33,10 +32,7 @@ function renderGallery() {
     var strHTML = gImgs.map((img) => {
         return `<div class="img-select"><img onclick="onImgSelect(${img.id})" src="../../meme-imgs/${img.id}.jpg" alt=""></div>`
     })
-
     elGallery.innerHTML = strHTML.join('')
-
-
 }
 
 
@@ -54,5 +50,4 @@ function onGallery() {
     elGallery.classList.remove('hide')
     const elMeme = document.querySelector('.meme-editor')
     elMeme.classList.add('hide')
-
 }
