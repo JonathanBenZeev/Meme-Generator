@@ -30,7 +30,7 @@ function onInit() {
 function renderGallery() {
     const elGallery = document.querySelector('.gallery')
     var strHTML = gImgs.map((img) => {
-        return `<div class="img-select"><img onclick="onImgSelect(${img.id})" src="../../meme-imgs/${img.id}.jpg" alt=""></div>`
+        return `<div class="img-select"><img onclick="onImgSelect(${img.id})" src="meme-imgs/${img.id}.jpg" alt=""></div>`
     })
     elGallery.innerHTML = strHTML.join('')
 }
